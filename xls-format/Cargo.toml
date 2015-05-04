@@ -1,0 +1,4 @@
+[package]
+name = "xls-format"
+version = "0.1.0"
+authors = ["Josiah Bruner <josiah@programmer.net>"]
