@@ -98,18 +98,18 @@ impl Basic_Excel {
 }
 
 struct Basic_Excel_Worksheet {
-    pub excel_: Basic_Excel,
-    pub sheet_index_: i32,
-    pub max_rows_: i32,
-    pub max_cols_: i32,
-    pub cells_: Vec<Basic_Excel_Cell>,
-    pub col_infos_: Worksheet::Col_Infos,
+    excel_: Basic_Excel,
+    sheet_index_: i32,
+    max_rows_: i32,
+    max_cols_: i32,
+    cells_: Vec<Basic_Excel_Cell>,
+    col_infos_: Worksheet::Col_Infos,
 }
 
 impl Basic_Excel_Worksheet {
     // Worksheet functions
     pub fn new() -> Basic_Excel_Worksheet {
-        return Basic_Excel_Worksheet{excel_: Basic_Excel::new(), sheet_index_: 0, max_rows_: 0, max_cols_: 0, cells_: vec![Basic_Excel_Cell], col_infos_: Worksheet::Col_Infos};
+        return Basic_Excel_Worksheet{excel_: Basic_Excel::new(), sheet_index_: 0, max_rows_: 0, max_cols_: 0, cells_: vec![Basic_Excel_Cell::new()], col_infos_: Worksheet::Col_Infos};
     }
     
     pub fn get_sheet_name() -> (bool, String) {
@@ -163,5 +163,84 @@ struct Compound_File;
 
 struct Workbook;
 
-struct Basic_Excel_Cell;
+struct Basic_Excel_Cell {
+    type_: i32,
+    ival_: i32,
+    fval_: f32,
+    str_: String,
+    
+    merged_rows_: u16,
+    merged_cols_: u16,
+    
+    _xf_idx: i32,
+}
 
+impl Basic_Excel_Cell {
+    pub fn new() -> Basic_Excel_Cell {
+        return Basic_Excel_Cell{type_: 0, ival_: 0, fval_: 0 as f32, str_: "".to_string(), merged_rows_: 0, merged_cols_: 0, _xf_idx: 0};
+    }
+    
+    pub fn get_type() -> i32 {
+        unimplemented!();
+    }
+    
+    pub fn get() -> (bool, f32) { // We don't need a separate return for ints in rust, since you can easily type-cast it (E.G. let (x, z as i32) = get())
+        unimplemented!();
+    }
+    
+    pub fn get_string_length() -> usize { // Length of string contents
+        unimplemented!();
+    }
+    
+    pub fn get_integer() -> i32 {
+        unimplemented!();
+    }
+    
+    pub fn get_float() -> f32 {
+        unimplemented!();
+    }
+    
+    pub fn get_string() -> String {
+        unimplemented!();
+    }
+    
+    pub fn set<T>(val: T) {
+        unimplemented!();
+    }
+    
+    pub fn set_formula() {
+        unimplemented!();
+    }
+    
+    pub fn get_xformat_index(&self) -> i32 {
+        return self._xf_idx;
+    }
+    
+    pub fn set_xformat_index(&mut self, xf_idx: i32) {
+        self._xf_idx = xf_idx;
+    }
+    
+    pub fn set_format() {
+        unimplemented!();
+    }
+    
+    pub fn EraseContents() {
+        unimplemented!();
+    }
+    
+    pub fn get_merged_rows(&self) -> u16 {
+        return self.merged_rows_;
+    }
+    
+    pub fn get_merged_cols(&self) -> u16 {
+        return self.merged_cols_;
+    }
+    
+    pub fn set_merged_rows(&mut self, merged_rows: u16) {
+        self.merged_rows_ = merged_rows;
+    }
+    
+    pub fn set_merged_cols(&mut self, merged_cols: u16) {
+        self.merged_cols_ = merged_cols;
+    }
+}
