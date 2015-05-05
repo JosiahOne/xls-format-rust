@@ -246,7 +246,7 @@ impl Ext_SST {
     }
     
     pub fn Record_Size() -> u32 {
-        unimplemented!();
+        unimplemented!(); //Thing
     }
 }
 
