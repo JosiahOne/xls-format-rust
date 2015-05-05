@@ -16,7 +16,7 @@ impl Basic_Excel {
     
     // File functions
     pub fn new_with_sheets(sheets: i32) {
-        
+        unimplemented!();
     }
     
     pub fn load<T>(filename: T) -> bool {
@@ -38,7 +38,7 @@ impl Basic_Excel {
     }
     
     pub fn close() {
-        
+        unimplemented!();
     }
     
     // Worksheet functions
@@ -107,8 +107,55 @@ struct Basic_Excel_Worksheet {
 }
 
 impl Basic_Excel_Worksheet {
+    // Worksheet functions
     pub fn new() -> Basic_Excel_Worksheet {
         return Basic_Excel_Worksheet{excel_: Basic_Excel::new(), sheet_index_: 0, max_rows_: 0, max_cols_: 0, cells_: vec![Basic_Excel_Cell], col_infos_: Worksheet::Col_Infos};
+    }
+    
+    pub fn get_sheet_name() -> (bool, String) {
+        unimplemented!();
+    }
+    
+    pub fn rename(to: &str) -> bool {
+        unimplemented!();
+    }
+    
+    pub fn print() {
+        unimplemented!();
+    }
+    
+    // Cell functions
+    pub fn get_total_rows() -> i32 {
+        unimplemented!();
+    }
+    
+    pub fn get_total_cols() -> i32 {
+        unimplemented!();
+    }
+    
+    pub fn cell(row: i32, col: i32) -> *mut Basic_Excel_Cell {
+        unimplemented!();
+    }
+    
+    pub fn erase_cell(row: i32, col: i32) -> bool {
+        unimplemented!();
+    }
+    
+    pub fn set_col_width(col_index: i32, col_width: u16) {
+        unimplemented!();
+    }
+    
+    pub fn get_col_width(col_index: i32) -> u16 {
+        unimplemented!();
+    }
+    
+    pub fn merge_cells(row: i32, col: i32, row_range: u16, col_range: u16) {
+        unimplemented!();
+    }
+    
+    // Private
+    fn update_cells() {
+        unimplemented!();
     }
 }
 
