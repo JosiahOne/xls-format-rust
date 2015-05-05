@@ -1,9 +1,11 @@
 mod Worksheet;
+mod Workbook;
 // Basic excel
+
 
 struct Basic_Excel {
     pub file_: Compound_File,                  // Compound file handler.
-    pub workbook_: Workbook,                   // Raw Workbook.
+    pub workbook_: Workbook::Workbook,         // Raw Workbook.
     pub worksheets_: Vec<Worksheet::Worksheet>,// Raw Worksheets.
     pub yesheets_: Vec<Basic_Excel_Worksheet>, // Parsed Worksheets.
 }
@@ -11,7 +13,7 @@ struct Basic_Excel {
 impl Basic_Excel {
     
     pub fn new() -> Basic_Excel {
-        return Basic_Excel{file_: Compound_File, workbook_: Workbook, worksheets_: vec![Worksheet::Worksheet], yesheets_: vec![Basic_Excel_Worksheet::new()]};
+        return Basic_Excel{file_: Compound_File, workbook_: Workbook::Workbook, worksheets_: vec![Worksheet::Worksheet], yesheets_: vec![Basic_Excel_Worksheet::new()]};
     }
     
     // File functions
@@ -161,8 +163,6 @@ impl Basic_Excel_Worksheet {
 
 struct Compound_File;
 
-struct Workbook;
-
 struct Basic_Excel_Cell {
     type_: i32,
     ival_: i32,
@@ -244,3 +244,4 @@ impl Basic_Excel_Cell {
         self.merged_cols_ = merged_cols;
     }
 }
+
