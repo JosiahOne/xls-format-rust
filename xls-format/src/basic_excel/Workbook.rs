@@ -1,4 +1,7 @@
+use super::Record::*;
+
 // Workbook.
+
 struct File_Protection;
 struct Code_Page;
 struct DSF;
@@ -246,7 +249,7 @@ impl Ext_SST {
     }
     
     pub fn Record_Size() -> u32 {
-        unimplemented!(); //Thing
+        unimplemented!();
     }
 }
 
@@ -262,7 +265,7 @@ pub struct Workbook {
     eof_: YEOF,
 }
 
-pub impl Workbook {
+impl Workbook {
     pub fn new() -> Workbook {
         unimplemented!();
     }

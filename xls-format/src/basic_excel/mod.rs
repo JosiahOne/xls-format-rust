@@ -1,7 +1,8 @@
+mod Record;
 mod Worksheet;
 mod Workbook;
-// Basic excel
 
+// Basic excel
 
 struct Basic_Excel {
     pub file_: Compound_File,                  // Compound file handler.
@@ -13,7 +14,7 @@ struct Basic_Excel {
 impl Basic_Excel {
     
     pub fn new() -> Basic_Excel {
-        return Basic_Excel{file_: Compound_File, workbook_: Workbook::Workbook, worksheets_: vec![Worksheet::Worksheet], yesheets_: vec![Basic_Excel_Worksheet::new()]};
+        return Basic_Excel{file_: Compound_File, workbook_: Workbook::Workbook::new(), worksheets_: vec![Worksheet::Worksheet], yesheets_: vec![Basic_Excel_Worksheet::new()]};
     }
     
     // File functions
