@@ -4,7 +4,7 @@ mod Workbook;
 
 // Basic excel
 
-struct Basic_Excel {
+pub struct Basic_Excel {
     pub file_: Compound_File,                  // Compound file handler.
     pub workbook_: Workbook::Workbook,         // Raw Workbook.
     pub worksheets_: Vec<Worksheet::Worksheet>,// Raw Worksheets.
@@ -18,7 +18,7 @@ impl Basic_Excel {
     }
     
     // File functions
-    pub fn new_with_sheets(sheets: i32) {
+    pub fn new_with_sheets(&self, sheets: i32) {
         unimplemented!();
     }
     
@@ -51,7 +51,7 @@ impl Basic_Excel {
         return result;
     }
     
-    pub fn get_worksheet<T>(sheet_index: T) -> Basic_Excel_Worksheet {
+    pub fn get_worksheet<T>(&self, sheet_index: T) -> Basic_Excel_Worksheet {
         let mut result = Basic_Excel_Worksheet::new();
         
         return result;
@@ -100,7 +100,7 @@ impl Basic_Excel {
     
 }
 
-struct Basic_Excel_Worksheet {
+pub struct Basic_Excel_Worksheet {
     excel_: Basic_Excel,
     sheet_index_: i32,
     max_rows_: i32,
@@ -162,9 +162,9 @@ impl Basic_Excel_Worksheet {
     }
 }
 
-struct Compound_File;
+pub struct Compound_File;
 
-struct Basic_Excel_Cell {
+pub struct Basic_Excel_Cell {
     type_: i32,
     ival_: i32,
     fval_: f32,
