@@ -1,6 +1,7 @@
 mod Record;
 mod Worksheet;
 mod Workbook;
+mod Special_Vec;
 
 // Basic excel
 
@@ -18,8 +19,16 @@ impl Basic_Excel {
     }
     
     // File functions
+    /// # fn new_with_sheets(&self, sheets: i32);
+    /// Creates (sheets many) blank worksheets and adds them to self.
     pub fn new_with_sheets(&self, sheets: i32) {
-        unimplemented!();
+        self.workbook_ = Workbook::Workbook::new();
+        self.worksheets_.clear();
+        Special_Vec::resize_vec(&mut self.workbook_.fonts_, 1, Record::Record_Capabilities::new());
+        Special_Vec::resize_vec(&mut self.workbook_.xfs_, 1, Record::Record_Capabilities::new());
+        Special_Vec::resize_vec(&mut self.workbook_.styles_, 6, Record::Record_Capabilities::new());
+        Special_Vec::resize_vec(&mut self.workbook_.bound_sheets_, 1, Record::Record_Capabilities::new());
+        Special_Vec::resize_vec(&mut self.worksheets_, 1, Worksheet::Worksheet::new());
     }
     
     pub fn load<T>(filename: T) -> bool {
@@ -97,7 +106,6 @@ impl Basic_Excel {
         
         return result;
     }
-    
 }
 
 pub struct Basic_Excel_Worksheet {

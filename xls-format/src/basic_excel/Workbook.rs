@@ -2,6 +2,40 @@ use super::Record::*;
 
 // Workbook.
 
+pub struct Workbook {
+    pub bof_: BOF,
+    pub window_: Window,
+    pub fonts_: Vec<Font>,
+    pub xfs_: Vec<XF>,
+    pub styles_: Vec<Style>,
+    pub formats_: Vec<Format>,
+    pub bound_sheets_: Vec<Bound_Sheet>,
+    pub sst_: Shared_String_Table,
+    pub eof_: YEOF,
+}
+
+impl Workbook {
+    pub fn new() -> Workbook {
+        unimplemented!();
+    }
+    
+    pub fn Read() {
+        unimplemented!();
+    }
+    
+    pub fn Write() {
+        unimplemented!();
+    }
+    
+    pub fn Data_Size() -> u32 {
+        unimplemented!();
+    }
+    
+    pub fn Record_Size() -> u32 {
+        unimplemented!();
+    }
+}
+
 struct File_Protection;
 struct Code_Page;
 struct DSF;
@@ -9,11 +43,11 @@ struct Tab_ID;
 struct FnGroupCount;
 struct WorkbookProtection;
 
-struct Window {
+pub struct Window {
     code_: u16,
     data_: String,
     data_size_: u32,
-    record_size_: u32,
+    record_size_: u32
     continue_indices_: Vec<u32>,
     
     horizontal_pos: u16,
@@ -40,7 +74,7 @@ struct Precision;
 struct Refresh_All;
 struct Book_Bool;
 
-struct Font {
+pub struct Font {
     code_: u16,
     data_: String,
     data_size_: u32,
@@ -65,7 +99,7 @@ impl Record_Capabilities for Font {
     }
 }
 
-struct Format {
+pub struct Format {
     code_: u16,
     data_: String,
     data_size_: u32,
@@ -82,7 +116,7 @@ impl Record_Capabilities for Format {
     }
 }
 
-struct XF {
+pub struct XF {
     code_: u16,
     data_: String,
     data_size_: u32,
@@ -107,7 +141,7 @@ impl Record_Capabilities for XF {
     }
 }
 
-struct Style {
+pub struct Style {
     code_: u16,
     data_: String,
     data_size_: u32,
@@ -129,7 +163,7 @@ impl Record_Capabilities for Style {
 struct Palette;
 struct Use_Selfs;
 
-struct Bound_Sheet {
+pub struct Bound_Sheet {
     code_: u16,
     data_: String,
     data_size_: u32,
@@ -151,7 +185,7 @@ impl Record_Capabilities for Bound_Sheet {
 struct Country;
 struct Link_Table;
 
-struct Shared_String_Table {
+pub struct Shared_String_Table {
     code_: u16,
     data_: String,
     data_size_: u32,
@@ -188,36 +222,3 @@ impl Record_Capabilities for Ext_SST {
     }
 }
 
-pub struct Workbook {
-    bof_: BOF,
-    window_: Window,
-    fonts_: Vec<Font>,
-    xfs_: Vec<XF>,
-    styles_: Vec<Style>,
-    formats_: Vec<Format>,
-    bound_sheets_: Vec<Bound_Sheet>,
-    sst_: Shared_String_Table,
-    eof_: YEOF,
-}
-
-impl Workbook {
-    pub fn new() -> Workbook {
-        unimplemented!();
-    }
-    
-    pub fn Read() {
-        unimplemented!();
-    }
-    
-    pub fn Write() {
-        unimplemented!();
-    }
-    
-    pub fn Data_Size() -> u32 {
-        unimplemented!();
-    }
-    
-    pub fn Record_Size() -> u32 {
-        unimplemented!();
-    }
-}
